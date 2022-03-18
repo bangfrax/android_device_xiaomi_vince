@@ -30,6 +30,9 @@ $(call inherit-product, device/xiaomi/vince/device.mk)
 # Inherit some common Evolution-X stuff.
 $(call inherit-product, vendor/evolution/config/common_full_phone.mk)
 
+# Include Evolution-X specific sepolicy
+-include device/evolution/sepolicy/qcom/sepolicy.mk
+
 # Bootanimation Resolution
 TARGET_BOOT_ANIMATION_RES := 1080
 

@@ -14,11 +14,11 @@
 # limitations under the License.
 #
 
-# Inherit Octavi product configuration
-$(call inherit-product, device/xiaomi/vince/octavi_vince.mk)
+# Inherit Evolution-X product configuration
+$(call inherit-product, device/xiaomi/vince/evolution_vince.mk)
 
-# Remove Octavi prefix from product name
+# Remove Evolution-X prefix from product name
 PRODUCT_NAME := vince
 
-# Identify Octavi Device identifier
-OCTAVI_BUILD := vince
+# Identify Evolution-X Device identifier
+EVOLUTION_BUILD := vince

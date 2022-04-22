@@ -14,13 +14,13 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/octavi_vince.mk \
+    $(LOCAL_DIR)/evolution_vince.mk \
     $(LOCAL_DIR)/vince.mk
 
 COMMON_LUNCH_CHOICES := \
-    octavi_vince-user \
-    octavi_vince-userdebug \
-    octavi_vince-eng \
+    evolution_vince-user \
+    evolution_vince-userdebug \
+    evolution_vince-eng \
     vince-user \
     vince-userdebug \
     vince-eng

@@ -37,6 +37,7 @@ $(call inherit-product, vendor/evolution/config/common_full_phone.mk)
 TARGET_BOOT_ANIMATION_RES := 1080
 
 # Custom stuff
+TARGET_USES_MINI_GAPPS := true
 TARGET_FACE_UNLOCK_SUPPORTED := true
 USE_PIXEL_CHARGER := true
 

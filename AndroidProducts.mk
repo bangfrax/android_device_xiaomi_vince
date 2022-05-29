@@ -15,12 +15,8 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/evolution_vince.mk \
-    $(LOCAL_DIR)/vince.mk
 
 COMMON_LUNCH_CHOICES := \
     evolution_vince-user \
     evolution_vince-userdebug \
     evolution_vince-eng \
-    vince-user \
-    vince-userdebug \
-    vince-eng

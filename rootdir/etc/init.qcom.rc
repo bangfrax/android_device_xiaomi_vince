@@ -73,9 +73,6 @@ on post-fs
     start vendor.configstore-hal
     start vendor.gralloc-2-0
 
-    # Disable sched autogroup
-    write /proc/sys/kernel/sched_autogroup_enabled 0
-
 on early-boot
     # Allow subsystem (modem etc) debugging
     write /sys/kernel/boot_adsp/boot 1
@@ -241,9 +238,10 @@ on post-fs-data
     mkdir /data/vendor/fm 0770 system system
     chmod 0770 /data/vendor/fm
 
-    # Enable idle state listener
-    write /sys/class/drm/card0/device/idle_encoder_mask 1
-    write /sys/class/drm/card0/device/idle_timeout_ms 100
+    # Create PERFD daemon related dirs
+    mkdir /data/vendor/perfd 0770 root system
+    chmod 2770 /data/vendor/perfd
+    rm /data/vendor/perfd/default_values
 
     # Change lm related dirs
     mkdir /data/vendor/lm 0700 root root
@@ -299,9 +297,6 @@ on property:sys.boot_completed=1
 
     # This initializes vendor.qti.hardware.perf service
     setprop vendor.post_boot.parsed 1
-
-    # Enable PowerHAL hint processing
-    setprop vendor.powerhal.init 1
 
 on property:persist.vendor.radio.atfwd.start=false
     stop vendor.atfwd
@@ -418,7 +413,3 @@ on property:hw.fm.init=0
 
 on property:hw.fm.init=1
     write /sys/module/radio_iris_transport/parameters/fmsmd_set 1
-
-# If UART is on, enable console_suspend on boot_complete to save power
-on property:sys.boot_completed=1 && property:init.svc.console=running
-    write /sys/module/printk/parameters/console_suspend Y

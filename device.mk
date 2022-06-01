@@ -38,9 +38,7 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH) \
-    hardware/google/interfaces \
-    hardware/google/pixel
+    $(LOCAL_PATH)
     
 QCOM_SOONG_NAMESPACE := \
     $(LOCAL_PATH)/qcom-caf
@@ -370,17 +368,14 @@ PRODUCT_PACKAGES += \
     libstagefrighthw \
     libstagefright_enc_common
 
-# Perf
-PRODUCT_PACKAGES += \
-    libqti-perfd-client
-
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service.vince-libperfmgr
+    android.hardware.power-service-qti
 
-# Powerhint
+# Powerhint (system/vendor)
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/power/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+    $(LOCAL_PATH)/configs/powerhint.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/powerhint.xml \
+    $(LOCAL_PATH)/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
 
 # Public libraries
 PRODUCT_COPY_FILES += \

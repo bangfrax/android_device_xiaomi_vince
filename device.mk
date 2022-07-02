@@ -181,7 +181,7 @@ PRODUCT_PACKAGES += \
     libmm-qcamera \
     libui_shim \
     libdng_sdk.vendor \
-    CameraGo
+    Camera
 
 # Component overrides
 PRODUCT_COPY_FILES += \
